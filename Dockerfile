@@ -14,7 +14,7 @@ RUN dotnet restore
 COPY . .
 
 # Build the application
-RUN dotnet build -c Release --no-restore
+RUN dotnet build
 
 # Publish the application
 RUN dotnet publish -c Release -o out --no-restore
@@ -29,4 +29,4 @@ WORKDIR /app
 COPY --from=build /app/out ./
 
 # Set the entry point for the application
-ENTRYPOINT ["dotnet", "ConnectFour.dll"]
+ENTRYPOINT ["dotnet", "Index.razor"]
